@@ -1,99 +1,25 @@
-Airflow DAG Testing Assignment
+# Airflow DAG Testing Assignment
 
-This repository contains a simple Apache Airflow project created for a DAG testing assignment.
-The goal of this project is to demonstrate how to build, test, and validate an ETL pipeline using Airflow and pytest.
+This project demonstrates a simple **ETL pipeline using Apache Airflow** with
+**unit testing and DAG validation** using `pytest`.
 
-Project Overview
+The goal of this assignment is to practice:
+- Writing clean Airflow DAGs
+- Testing Python transformation logic
+- Validating DAG integrity programmatically
 
-The DAG simulates a basic ETL process:
+---
 
-Extract: Generate sample data
+## Installation
 
-Transform: Convert the name field to uppercase
+Make sure you have the following installed:
 
-Load: Simulate loading the transformed data
+- Docker
+- Docker Compose
+- Git
 
-Testing is performed using:
+Clone the repository and move into the project directory:
 
-airflow tasks test
-
-pytest
-
-Project Structure
-airflow/
-├── dags/
-│   └── dag_testing_assignment.py
-├── tests/
-│   └── test_dag_testing_assignment.py
-├── Screenshoot/
-│   ├── extract.png
-│   ├── transform.png
-│   ├── load.png
-│   └── pytest_test.png
-├── docker-compose.yaml
-├── .gitignore
-└── README.md
-
-How to Run the Project
-1. Start Airflow
-docker-compose up -d
-
-2. Create Admin User
-docker-compose run --rm airflow airflow users create \
-  --username admin \
-  --firstname Admin \
-  --lastname User \
-  --role Admin \
-  --email admin@example.com \
-  --password admin
-
-
-Access Airflow UI:
-
-http://localhost:8080
-
-
-Login:
-
-Username: admin
-
-Password: admin
-
-DAG Testing
-
-Run tasks individually using Airflow CLI:
-
-airflow tasks test data_validation_dag extract_task 2025-10-22
-airflow tasks test data_validation_dag transform_task 2025-10-22
-airflow tasks test data_validation_dag load_task 2025-10-22
-
-
-Each task supports isolated execution using fallback data.
-
-Unit Testing with Pytest
-
-Run unit tests with:
-
-pytest tests/test_dag_testing_assignment.py
-
-
-Tests include:
-
-Transformation logic validation
-
-Empty input handling
-
-DAG integrity check using DagBag
-
-Screenshots
-
-Execution results are documented in the Screenshoot/ folder:
-
-Airflow task test results
-
-Pytest execution output
-
-Author
-
-Naufal
-Airflow DAG Testing Assignment
+```bash
+git clone <your-repository-url>
+cd airflow
