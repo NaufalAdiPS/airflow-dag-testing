@@ -1,23 +1,25 @@
 Airflow DAG Testing Assignment
-📌 Project Description
 
-This project is a simple ETL pipeline simulation using Apache Airflow, designed to demonstrate DAG testing and unit testing using:
+This repository contains a simple Apache Airflow project created for a DAG testing assignment.
+The goal of this project is to demonstrate how to build, test, and validate an ETL pipeline using Airflow and pytest.
+
+Project Overview
+
+The DAG simulates a basic ETL process:
+
+Extract: Generate sample data
+
+Transform: Convert the name field to uppercase
+
+Load: Simulate loading the transformed data
+
+Testing is performed using:
 
 airflow tasks test
 
 pytest
 
-The pipeline consists of three main stages:
-
-Extract – retrieves dummy data
-
-Transform – converts the name field to uppercase
-
-Load – simulates loading transformed data
-
-The project follows best practices for Airflow DAG structure, testing, and documentation.
-
-🗂️ Project Structure
+Project Structure
 airflow/
 ├── dags/
 │   └── dag_testing_assignment.py
@@ -32,24 +34,11 @@ airflow/
 ├── .gitignore
 └── README.md
 
-⚙️ Prerequisites
-
-Make sure you have installed:
-
-Docker
-
-Docker Compose
-
-Git
-
-🚀 Running Airflow
-1️⃣ Start Airflow
+How to Run the Project
+1. Start Airflow
 docker-compose up -d
 
-2️⃣ Create Airflow Admin User
-
-Run the following command to create an admin user:
-
+2. Create Admin User
 docker-compose run --rm airflow airflow users create \
   --username admin \
   --firstname Admin \
@@ -59,70 +48,52 @@ docker-compose run --rm airflow airflow users create \
   --password admin
 
 
-Access the Airflow UI at:
+Access Airflow UI:
 
 http://localhost:8080
 
 
-Login credentials:
+Login:
 
 Username: admin
 
 Password: admin
 
-🧪 DAG Testing Using Airflow CLI
-🔹 Extract Task
+DAG Testing
+
+Run tasks individually using Airflow CLI:
+
 airflow tasks test data_validation_dag extract_task 2025-10-22
-
-🔹 Transform Task
 airflow tasks test data_validation_dag transform_task 2025-10-22
-
-🔹 Load Task
 airflow tasks test data_validation_dag load_task 2025-10-22
 
 
-The airflow tasks test command runs tasks in isolated mode.
-Fallback data is implemented inside tasks to support isolated execution.
+Each task supports isolated execution using fallback data.
 
-✅ Unit Testing with Pytest
+Unit Testing with Pytest
 
-Run unit tests using:
+Run unit tests with:
 
 pytest tests/test_dag_testing_assignment.py
 
 
-The tests include:
+Tests include:
 
-Unit testing for the transform_data function
+Transformation logic validation
 
 Empty input handling
 
-DAG integrity testing using DagBag
+DAG integrity check using DagBag
 
-📸 Screenshots
+Screenshots
 
-Execution screenshots for:
+Execution results are documented in the Screenshoot/ folder:
 
-Airflow task tests (extract, transform, load)
+Airflow task test results
 
-Pytest test results
+Pytest execution output
 
-Available in the:
+Author
 
-Screenshoot/
-
-
-directory.
-
-🧠 Technical Notes
-
-Uses XCom for inter-task communication
-
-Implements fallback logic for isolated task execution
-
-Follows Airflow production-ready structure
-
-👤 Author
-
-Name: Naufal
-Role: Data Engineering / Airflow Assignment
+Naufal
+Airflow DAG Testing Assignment
